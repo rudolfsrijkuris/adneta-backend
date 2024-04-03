@@ -81,7 +81,7 @@ router.post("/saveLogoToDB", async (req, res) => {
             webhook_url: ""
           };
 
-          const server_url = "https://sponge-crack-previously.ngrok-free.app";
+          const server_url = "https://gator-eminent-suddenly.ngrok-free.app";
 
           try {
               const firstApiResponse = await axios.post(`${server_url}/v1/generation/text-to-image`, jsonData, {
