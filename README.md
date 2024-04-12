@@ -10,7 +10,7 @@ You can find all credentials in Notion workspace and the structure should be lik
 ```markdown
 OPENAI_API_KEY=<api_key>
 ORG_ID=<organization_id>
-DB_URL=mongodb+srv://adneta:siAP9U9U4bj85rF3@adneta.2fvc2bw.mongodb.net/auth
+DB_URL=mongodb+srv://[db_name]:[password]@[db].mongodb.net/auth
 ```
 
 ## How to start server
