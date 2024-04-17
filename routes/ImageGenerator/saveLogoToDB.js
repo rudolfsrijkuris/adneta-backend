@@ -16,7 +16,7 @@ router.post("/saveLogoToDB", async (req, res) => {
 
         const jsonData = {
             filteredPrompt,
-            negative_prompt: "nude, naked, bare, stripped, with nothing on",
+            negative_prompt: "",
             style_selections: [
               // "Fooocus V2",
               // "Fooocus Cinematic",
