@@ -6,16 +6,16 @@ router.post("/saveLogoToDB", async (req, res) => {
     try {
         const { prompt, style } = req.body;
 
-        const wordsToRemove = ["nude", "naked", "bare", "stripped", "with nothing on", "pussy", "pussies", "pussys", "boob", "boobs", "tit", "tits", "tities", "titie", "dick", "dicks", "penis", "peepee"];
+        //const wordsToRemove = ["nude", "naked", "bare", "stripped", "with nothing on", "pussy", "pussies", "pussys", "boob", "boobs", "tit", "tits", "tities", "titie", "dick", "dicks", "penis", "peepee"];
 
-        const pattern = new RegExp(wordsToRemove.join("|"), "gi");
+        //const pattern = new RegExp(wordsToRemove.join("|"), "gi");
 
-        const filteredPrompt = prompt.replace(pattern, "");
+        //const filteredPrompt = prompt.replace(pattern, "");
 
         console.log(filteredPrompt)
 
         const jsonData = {
-            filteredPrompt,
+            prompt,
             negative_prompt: "",
             style_selections: [
               // "Fooocus V2",
@@ -41,45 +41,41 @@ router.post("/saveLogoToDB", async (req, res) => {
                 weight: 0.1
               }
             ],
-            advanced_params: {
-              adaptive_cfg: 7,
-              adm_scaler_end: 0.3,
-              adm_scaler_negative: 0.8,
-              adm_scaler_positive: 1.5,
-              canny_high_threshold: 128,
-              canny_low_threshold: 64,
-              controlnet_softness: 0.25,
-              debugging_cn_preprocessor: false,
-              debugging_inpaint_preprocessor: false,
-              disable_preview: false,
-              freeu_b1: 1.01,
-              freeu_b2: 1.02,
-              freeu_enabled: false,
-              freeu_s1: 0.99,
-              freeu_s2: 0.95,
-              inpaint_disable_initial_latent: false,
-              inpaint_engine: "v1",
-              inpaint_erode_or_dilate: 0,
-              inpaint_respective_field: 1,
-              inpaint_strength: 1,
-              invert_mask_checkbox: false,
-              mixing_image_prompt_and_inpaint: false,
-              mixing_image_prompt_and_vary_upscale: false,
-              overwrite_height: -1,
-              overwrite_step: -1,
-              overwrite_switch: -1,
-              overwrite_upscale_strength: -1,
-              overwrite_vary_strength: -1,
-              overwrite_width: -1,
-              refiner_swap_method: "joint",
-              sampler_name: "dpmpp_2m_sde_gpu",
-              scheduler_name: "karras",
-              skipping_cn_preprocessor: false
-            },
-            require_base64: false,
-            async_process: false,
-            webhook_url: ""
-          };
+            "disable_preview": false,
+            "adm_scaler_positive": 1.5,
+            "adm_scaler_negative": 0.8,
+            "adm_scaler_end": 0.3,
+            "refiner_swap_method": "joint",
+            "adaptive_cfg": 7,
+            "sampler_name": "dpmpp_2m_sde_gpu",
+            "scheduler_name": "karras",
+            "overwrite_step": -1,
+            "overwrite_switch": -1,
+            "overwrite_width": -1,
+            "overwrite_height": -1,
+            "overwrite_vary_strength": -1,
+            "overwrite_upscale_strength": -1,
+            "mixing_image_prompt_and_vary_upscale": false,
+            "mixing_image_prompt_and_inpaint": false,
+            "debugging_cn_preprocessor": false,
+            "skipping_cn_preprocessor": false,
+            "controlnet_softness": 0.25,
+            "canny_low_threshold": 64,
+            "canny_high_threshold": 128,
+            "freeu_enabled": false,
+            "freeu_b1": 1.01,
+            "freeu_b2": 1.02,
+            "freeu_s1": 0.99,
+            "freeu_s2": 0.95,
+            "debugging_inpaint_preprocessor": false,
+            "inpaint_disable_initial_latent": false,
+            "inpaint_engine": "v1",
+            "inpaint_strength": 1,
+            "inpaint_respective_field": 1
+          },
+          "require_base64": false,
+          "async_process": false
+        }
 
           const server_url = "https://gator-eminent-suddenly.ngrok-free.app";
 
